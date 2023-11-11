@@ -1,5 +1,5 @@
 <template>
-  <h1>Cells</h1>
+<h1>Cell</h1>  
 </template>
 
 <script>
