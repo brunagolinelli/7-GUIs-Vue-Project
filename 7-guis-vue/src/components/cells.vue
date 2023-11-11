@@ -1,5 +1,5 @@
 <template>
-  <router-view/>
+<h1>Cell</h1>  
 </template>
 
 <script>
