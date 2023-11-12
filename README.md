@@ -20,3 +20,6 @@ Para rodar o projeto, siga os passos abaixo:
 Execute npm install para instalar as dependências.
 Execute npm run dev para iniciar o servidor de desenvolvimento.
 Explore e desfrute dos aplicativos Vue.js neste projeto!
+
+Para ver o projeto clique o no link:
+wasteful-brush.surge.sh
