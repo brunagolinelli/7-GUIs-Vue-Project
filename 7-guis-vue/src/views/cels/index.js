@@ -1,23 +1,31 @@
-import { markRaw, reactive } from 'vue';
+import { reactive } from 'vue'
 
-const COLS = 5;
-const ROWS = 20;
+const COLS = 5
+const ROWS = 20
 
-// Use constantes diretamente
-export const cells = markRaw(reactive(Array(COLS).fill().map(() => Array(ROWS).fill(''))));
+export const cells = reactive(
+  Array.from(Array(COLS).keys()).map((i) =>
+    Array.from(Array(ROWS).keys()).map((i) => '')
+  )
+)
 
 export function evalCell(exp) {
   if (!exp.startsWith('=')) {
     return exp
   }
 
-  exp = exp.slice(1).replace(/\b([A-Z])(\d{1,2})\b/g, (_, c, r) => `get(${c.charCodeAt(0) - 65},${r})`)
+  // = A1 + B2 ---> get(0,1) + get(1,2)
+  exp = exp
+    .slice(1)
+    .replace(
+      /\b([A-Z])(\d{1,2})\b/g,
+      (_, c, r) => `get(${c.charCodeAt(0) - 65},${r})`
+    )
 
   try {
     return new Function('get', `return ${exp}`)(getCellValue)
   } catch (e) {
-    // Mensagem de erro mais informativa
-    return `#ERROR: ${e.message}`
+    return `#ERROR ${e}`
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-green-100 min-h-screen">
+  <div class="bg-green-100 h-screen  items-center">
     <div class="py-4 ml-2">
       <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4">Voltar para Home</router-link>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class=" p-8 bg-blue-200 min-h-screen">
+  <div class=" p-8 bg-blue-200 min-h-screen items-center">
     <div class="mb-8">
       <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4"
         >Voltar para Home</router-link

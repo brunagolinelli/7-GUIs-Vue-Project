@@ -1,30 +1,61 @@
 <template>
-  <div class="bg-blue-100 min-h-screen flex flex-col items-center justify-center">
-    <div class="mb-8">
+  <div class="bg-blue-100 min-h-screen flex flex-col p-4">
+    <div class="mb-4">
       <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4"
         >Voltar para Home</router-link
       >
     </div>
-    <h1 class="text-4xl font-bold mb-2">Agende seu voo</h1>
-    <p class="text-gray-600 mb-4">Agende as datas de ida e volta do seu voo</p>
+    <div class="flex flex-col items-center">
+      <h1 class="text-3xl font-bold mb-2">Agende seu voo</h1>
+      <p class="text-gray-600 mb-4">
+        Agende as datas de ida e volta do seu voo
+      </p>
 
-    <select v-model="flightType" class="border border-solid border-blue-500 p-2 rounded-md mb-4">
-      <option value="one-way flight">Voo só de ida</option>
-      <option value="return flight">Voo de ida e volta</option>
-    </select>
+      <select
+        v-model="flightType"
+        class="border border-solid border-blue-500 p-2 rounded-md mb-4 w-1/2 sm:w-1/3"
+      >
+        <option value="one-way flight">Voo só de ida</option>
+        <option value="return flight">Voo de ida e volta</option>
+      </select>
 
-    <input type="date" v-model="departureDate" class="border border-solid border-blue-500 p-2 rounded-md mb-4">
-    <input type="date" v-model="returnDate" :disabled="!isReturn" class="border border-solid border-blue-500 p-2 rounded-md mb-4">
+      <input
+        type="date"
+        v-model="departureDate"
+        class="border border-solid border-blue-500 p-2 rounded-md mb-2"
+      />
+      <input
+        type="date"
+        v-model="returnDate"
+        :disabled="!isReturn"
+        class="border border-solid border-blue-500 p-2 rounded-md mb-4"
+      />
 
-    <button :disabled="!canBook" @click="openDialog" class="bg-blue-500 text-white py-2 px-4 rounded-md mb-4">Reservar</button>
+      <button
+        :disabled="!canBook"
+        @click="openDialog"
+        class="bg-blue-500 text-white py-2 px-4 rounded-md mb-4"
+      >
+        Reservar
+      </button>
 
-    <p class="text-red-500">{{ canBook ? '' : 'A data de retorno deve ser após a data de ida.' }}</p>
-
+      <p class="text-red-500">
+        {{ canBook ? "" : "A data de retorno deve ser após a data de ida." }}
+      </p>
+    </div>
     <!-- Diálogo -->
-    <div v-if="dialogVisible" class="fixed inset-0 flex items-center justify-center">
-      <div class="bg-white p-8 rounded-md shadow-md">
-        <p>{{ dialogMessage }}</p>
-        <button @click="closeDialog" class="bg-blue-500 text-white py-2 px-4 rounded-md mt-4">Fechar</button>
+    <div
+      v-if="dialogVisible"
+      class="fixed inset-0 flex items-center justify-center"
+    >
+      <div class="bg-white p-4 md:p-8 rounded-md shadow-md">
+        <p class="text-center">{{ dialogMessage }}</p>
+        <button
+          @click="closeDialog"
+          class="bg-blue-500 text-white py-2 px-4 rounded-md mt-4"
+        >
+          Fechar
+        </button>
       </div>
     </div>
   </div>
@@ -48,10 +79,9 @@ const canBook = computed(
 );
 
 function book() {
-  dialogMessage.value =
-    isReturn.value
-      ? `Você reservou um voo de ida e volta saindo em ${departureDate.value} e retornando em ${returnDate.value}.`
-      : `Você reservou um voo só de ida saindo em ${departureDate.value}.`;
+  dialogMessage.value = isReturn.value
+    ? `Você reservou um voo de ida e volta saindo em ${departureDate.value} e retornando em ${returnDate.value}.`
+    : `Você reservou um voo só de ida saindo em ${departureDate.value}.`;
   dialogVisible.value = true;
 }
 
@@ -59,7 +89,7 @@ function openDialog() {
   if (canBook.value) {
     book();
   } else {
-    dialogMessage.value = 'A data de retorno deve ser após a data de ida.';
+    dialogMessage.value = "A data de retorno deve ser após a data de ida.";
     dialogVisible.value = true;
   }
 }
@@ -89,7 +119,7 @@ function pad(n, s = String(n)) {
 </script>
 
 <style scoped>
-  input[disabled] {
-    color: #999;
-  }
+input[disabled] {
+  color: #999;
+}
 </style>
