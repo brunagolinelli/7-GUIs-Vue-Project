@@ -1,6 +1,6 @@
 <template>
   <div class="bg-green-100 min-h-screen">
-    <div class="mb-8">
+    <div class="ml-2 py-4">
       <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4"
         >Voltar para Home</router-link
       >
