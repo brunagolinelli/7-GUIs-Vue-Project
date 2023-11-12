@@ -14,6 +14,7 @@ export function evalCell(exp) {
     return exp
   }
 
+  // = A1 + B2 ---> get(0,1) + get(1,2)
   exp = exp
     .slice(1)
     .replace(

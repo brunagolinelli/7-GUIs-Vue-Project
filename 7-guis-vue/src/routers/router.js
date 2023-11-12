@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import cells from "../components/cells.vue"
+import cellsHome from "../views/cels/cellsHome.vue"
 import circleDrawer from "../components/circleDrawer.vue"
 import counter from "../components/counter.vue"
 import crud from "../components/crud.vue"
@@ -17,7 +17,7 @@ const routes = [
   {
     path: '/cells',
     name: 'Cells',
-    component: cells
+    component: cellsHome
   },
   {
     path: '/circle-drawer',
