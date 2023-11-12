@@ -23,7 +23,5 @@
 export default {
   name: 'Home'
 }
+</script>
 
-<script>
-<style scoped>
-</style>
