@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col justify-start h-screen space-y-4">
-    <div class="ml-2 py-4 flex ">
-      <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-8 ml-8">
+    <div class="ml-2 py-4 flex">
+      <router-link
+        to="/"
+        class="bg-blue-500 text-white rounded-md py-2 px-8 ml-8"
+      >
         Voltar para Home
       </router-link>
     </div>

@@ -1,11 +1,15 @@
 <template>
-  <div class="bg-green-100 h-screen  items-center">
+  <div class="bg-green-100 h-screen items-center">
     <div class="py-4 ml-2">
-      <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4">Voltar para Home</router-link>
+      <router-link to="/" class="bg-blue-500 text-white rounded-md py-2 px-4"
+        >Voltar para Home</router-link
+      >
     </div>
     <div class="container mx-auto my-8 text-center">
       <h1 class="text-4xl font-bold mb-4">Contador</h1>
-      <p class="text-gray-600 mb-8">Adicione e subtraia números através dos botões</p>
+      <p class="text-gray-600 mb-8">
+        Adicione e subtraia números através dos botões
+      </p>
 
       <div class="flex items-center justify-center">
         <button
